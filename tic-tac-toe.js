@@ -6,7 +6,6 @@ window.onload = ()=> {
     let winner = false
     let turn_tracker = 0
 
-
     squares.forEach( (square,position) => {
         square.classList.add('class','square');
         square.id = `${position}`
@@ -51,12 +50,10 @@ window.onload = ()=> {
         let diagonals = (game_state[0] + game_state[4] + game_state[8]).includes(str) || (game_state[2] + game_state[4] + game_state[6]).includes(str)
 
         return rows || columns || diagonals
-
     }
 
     //Check if Winning Combination is Found
     const checkWin = () => {
-
         if(checkCombos("XXX")){
             status.classList.add("you-won")
             status.innerHTML = "Congratulations! X is the Winner!"
@@ -68,5 +65,11 @@ window.onload = ()=> {
         }
     }
 
+    // Button to start a new game
+    let new_game = document.getElementsByClassName("btn")[0];
+    new_game.addEventListener("click", () => {
+        window.location.reload();
+
+    });
 
 }
